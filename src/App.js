@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
-
+import TodoList from './components/TodoComponents/TodoList';
 
 const todos = [
     {task: 'clean bathroom', 
@@ -45,7 +45,7 @@ class App extends React.Component {
 
     const newTodo = {
       task: this.state.task, 
-      id: this.state.task,
+      id: this.state.id,
       completed: this.state.completed
     }; 
     this.setState({
@@ -67,9 +67,11 @@ class App extends React.Component {
       <div className="App">
         <h2>To Do List</h2>
         <div className="todo-list">
+        <div className="todo-list">
         {this.state.todos.map((todosFromMap, index) => (
          <Todo key={index} todo={todosFromMap} />
         ))}
+        </div>
         </div>
         <TodoForm />
       </div>
