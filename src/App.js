@@ -65,7 +65,7 @@ class App extends React.Component {
     console.log(e.target.value);
 
     this.setState({
-      [e.target.task]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -82,10 +82,10 @@ class App extends React.Component {
         </div>
         <TodoForm 
         addTodo={this.addTodo}
-        task={this.state.task}
+        name={this.state.task}
         id={this.state.id}
         completed={this.state.completed}
-        handleChanges={this.state.handleChanges}
+        handleChanges={this.handleChanges}
         />
       </div>
     );

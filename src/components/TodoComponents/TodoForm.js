@@ -5,7 +5,7 @@ const TodoForm = props => {
         <form onSubmit={props.addTodo}>
             <input 
                 type="text"
-                value={props.task}
+                value={props.value}
                 name="task"
                 onChange={props.handleChanges}
                 placeholder="add task here"
