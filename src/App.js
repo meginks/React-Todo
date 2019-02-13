@@ -81,6 +81,7 @@ class App extends React.Component {
         </div>
         </div>
         <TodoForm 
+        value={this.state.task}
         addTodo={this.addTodo}
         name={this.state.task}
         id={this.state.id}
