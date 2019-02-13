@@ -5,22 +5,22 @@ import TodoList from './components/TodoComponents/TodoList';
 
 const todos = [
     {task: 'clean bathroom', 
-    id: 1, 
+    id: Date.now(), 
     completed: false
     }, 
       
     {task: 'take out trash', 
-    id: 2, 
+    id: Date.now(), 
     completed: false
     }, 
 
     {task: 'cook dinner', 
-    id: 3, 
+    id: Date.now(), 
     completed: false
     }, 
 
     {task: 'do laundry', 
-    id: 4, 
+    id: Date.now(), 
     completed: false
     }
 ]
@@ -35,7 +35,7 @@ class App extends React.Component {
     this.state = {
       todos: todos, 
       task: "",
-      id: "",
+      id: Date.now(),
       completed: ""
     };
   }
@@ -56,7 +56,14 @@ class App extends React.Component {
     }); 
   };  
 
+  clearCompleted = e => {
+    e.preventDefault();
+
+  }
+
   handleChanges = e => {
+    console.log(e.target.value);
+
     this.setState({
       [e.target.task]: e.target.value
     });
@@ -73,7 +80,13 @@ class App extends React.Component {
         ))}
         </div>
         </div>
-        <TodoForm />
+        <TodoForm 
+        addTodo={this.addTodo}
+        task={this.state.task}
+        id={this.state.id}
+        completed={this.state.completed}
+        handleChanges={this.state.handleChanges}
+        />
       </div>
     );
   }
