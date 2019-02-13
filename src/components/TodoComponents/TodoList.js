@@ -1,8 +1,10 @@
 import React from 'react';
+import Todo from './Todo';
 
-// const TodoList = props.map((todosFromMap, index) => { (
-//          <Todo key={index} todo={todosFromMap} />
-//         )
-// };
+function TodoList(props) { return props.todos.map((todosFromMap, index) => { 
+return <Todo key={index} todo={todosFromMap} />
+        
+});
+};
 
-// export default TodoList;
+export default TodoList;

@@ -75,9 +75,11 @@ class App extends React.Component {
         <h2>To Do List</h2>
         <div className="todo-list">
         <div className="todo-list">
-        {this.state.todos.map((todosFromMap, index) => (
+        {/* {this.state.todos.map((todosFromMap, index) => (
          <Todo key={index} todo={todosFromMap} />
-        ))}
+        ))} */}
+        <TodoList 
+        todos = {this.state.todos}/> 
         </div>
         </div>
         <TodoForm 
