@@ -33,10 +33,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: todos, 
-      task: "",
-      id: Date.now(),
-      completed: ""
+      todos
     };
   }
 
@@ -45,8 +42,8 @@ class App extends React.Component {
 
     const newTodo = {
       task: this.state.task, 
-      id: this.state.id,
-      completed: this.state.completed
+      id: Date.now(),
+      completed: false
     }; 
     this.setState({
       todos: [...this.state.todos, newTodo],
@@ -55,6 +52,17 @@ class App extends React.Component {
       completed: ""
     }); 
   };  
+
+  toggleCompleted = (id) => {
+    this.setState ({
+      todos: this.state.todos.map(todo => {
+        if (id === todo.id) { 
+            todo.completed = !todo.completed
+        }
+        return todo;
+      })
+    });
+  };
 
   clearCompleted = e => {
     e.preventDefault();
@@ -79,7 +87,8 @@ class App extends React.Component {
          <Todo key={index} todo={todosFromMap} />
         ))} */}
         <TodoList 
-        todos = {this.state.todos}/> 
+        todos = {this.state.todos}
+        toggleCompleted={this.toggleCompleted}/> 
         </div>
         </div>
         <TodoForm 
