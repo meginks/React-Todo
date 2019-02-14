@@ -5,22 +5,22 @@ import TodoList from './components/TodoComponents/TodoList';
 
 const todos = [
     {task: 'clean bathroom', 
-    id: Date.now(), 
+    id: 1, 
     completed: false
     }, 
       
     {task: 'take out trash', 
-    id: Date.now(), 
+    id: 2, 
     completed: false
     }, 
 
     {task: 'cook dinner', 
-    id: Date.now(), 
+    id: 3, 
     completed: false
     }, 
 
     {task: 'do laundry', 
-    id: Date.now(), 
+    id: 4, 
     completed: false
     }
 ]
@@ -54,10 +54,11 @@ class App extends React.Component {
   };  
 
   toggleCompleted = (id) => {
+    console.log("id: ", id);
     this.setState ({
       todos: this.state.todos.map(todo => {
         if (id === todo.id) { 
-            todo.completed = !todo.completed
+            todo.completed = !todo.completed; 
         }
         return todo;
       })
