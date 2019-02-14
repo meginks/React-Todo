@@ -65,10 +65,15 @@ class App extends React.Component {
     });
   };
 
-  clearCompleted = e => {
-    e.preventDefault();
-
-  }
+  // clearCompleted = e => {
+  //   e.preventDefault();
+  //   this.setState({ 
+  //     todos: (this.state.todos.filter(todo => 
+  //       {
+  //         todo.id = !todo.id}) 
+  //     })
+  //     return todo;
+  // };
 
   handleChanges = e => {
     console.log(e.target.value);
