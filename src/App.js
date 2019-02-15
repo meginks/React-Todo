@@ -58,22 +58,17 @@ class App extends React.Component {
     this.setState ({
       todos: this.state.todos.map(todo => {
         if (id === todo.id) { 
-            todo.completed = !todo.completed; 
+          return {...todo, completed: todo.completed === false ? true: false}; 
         }
         return todo;
       })
     });
   };
 
-  // clearCompleted = e => {
-  //   e.preventDefault();
-  //   this.setState({ 
-  //     todos: (this.state.todos.filter(todo => 
-  //       {
-  //         todo.id = !todo.id}) 
-  //     })
-  //     return todo;
-  // };
+  clearCompleted = (e) => {
+    e.preventDefault();
+    this.setState({ todos: this.state.todos.filter(todo => !todo.completed)});
+  };
 
   handleChanges = e => {
     console.log(e.target.value);
@@ -102,7 +97,7 @@ class App extends React.Component {
         addTodo={this.addTodo}
         name={this.state.task}
         id={this.state.id}
-        completed={this.state.completed}
+        clearCompleted={this.clearCompleted}
         handleChanges={this.handleChanges}
         />
       </div>
